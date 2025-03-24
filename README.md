@@ -4,7 +4,7 @@ ver.1.1.0以降であれば、[TwitchFX](https://github.com/rakso20000/TwitchFX)
 
 # 依存MOD  
 - SiraUtil
-- ChatCore
+- CatCore
 # 使い方  
 ![image](https://user-images.githubusercontent.com/55026301/138883861-c55a309a-d4e2-48f2-a1f8-4042d2e28444.png)
 
