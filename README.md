@@ -34,3 +34,6 @@ Starting from version 1.1.0, it can coexist with [TwitchFX](https://github.com/r
 - grey
 - clear
 - rainbow
+
+## Acknowledgements
+- [Denpadokei](https://github.com/denpadokei) for developing the mod
