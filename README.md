@@ -1,27 +1,27 @@
 # StreamPartyCommand
-ボムとかがどっかーんってするやつ  
-ver.1.1.0以降であれば、[TwitchFX](https://github.com/rakso20000/TwitchFX)と共存できます。
+A thing that makes bombs go "boom!"  
+Starting from version 1.1.0, it can coexist with [TwitchFX](https://github.com/rakso20000/TwitchFX)
 
-# 依存MOD  
+# Required Mods  
 - SiraUtil
 - CatCore
-# 使い方  
+# How to Use 
 ![image](https://user-images.githubusercontent.com/55026301/138883861-c55a309a-d4e2-48f2-a1f8-4042d2e28444.png)
 
-1. 「LOGON TWITCH」でOAuthトークンを取得します。
-2. Chanelsに自分のIDを打ち込みます。
-3. SAVE SETTINGを押します。
+1. Obtain an OAuth token by clicking「LOGON TWITCH].
+2. Enter your Twitch ID in the Channels field.
+3. Click "SAVE SETTING".
 
-## コマンド一覧  
-|コマンド|説明|
+## Command List
+|Command|Description|
 |---|---|
-|!bomb|曲の途中に出てくる一般ノーツをボムノーツに置き換えます。|
-|!setnotecolor (left color) (right color)|ノーツの色を変更します。Chroma、Noodle譜面では無効化されます。|
-|!setsabercolor (left color) (right color)|セイバーの色を変更します。Chroma、Noodle譜面では無効化されます。|
-|!setlightcolor (left color) (right color)|ライティングの色を変更します。Chroma、Noodle譜面では無効化されます。|
-|!setwallcolor color|壁の色を変更します。Chroma、Noodle譜面では無効化されます。|
+|!bomb|Replaces regular notes with bomb notes during a song.|
+|!setnotecolor (left color) (right color)|Changes the color of notes. (Disabled for Chroma and Noodle maps.)|
+|!setsabercolor (left color) (right color)|Changes the color of sabers. (Disabled for Chroma and Noodle maps.)|
+|!setlightcolor (left color) (right color)|Changes the color of lighting. (Disabled for Chroma and Noodle maps.)|
+|!setwallcolor color|Changes the color of walls. (Disabled for Chroma and Noodle maps.)|
 
-## 色一覧
+## Available Colors
 - red
 - green
 - blue
