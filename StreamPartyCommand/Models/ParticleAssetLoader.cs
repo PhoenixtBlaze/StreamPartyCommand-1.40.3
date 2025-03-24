@@ -46,6 +46,14 @@ namespace StreamPartyCommand.Models
                         _ = ShaderRepair.FixShadersOnGameObject(asset);
                         this.Particle = asset.GetComponent<ParticleSystem>();
                         this.Particle.Stop();
+
+                        // Try to Apply VR shader fix
+                        foreach (var renderer in this.Particle.GetComponentsInChildren<ParticleSystemRenderer>()) {
+                            if (renderer.material != null) {
+                                renderer.material.shader = Shader.Find("VR/Particles/Alpha Blended");
+                                renderer.material.renderQueue = 3000; // Ensure proper rendering in VR
+                            }
+                        }
                         break;
                     }
                 }

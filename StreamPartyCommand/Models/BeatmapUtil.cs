@@ -18,40 +18,29 @@ namespace StreamPartyCommand.Models
             this.CurrentmapKey = gameplayCoreSceneSetupData.beatmapKey;
         }
 
-        public static bool IsNoodleMap(BeatmapLevel level, BeatmapKey key)
+        public static bool IsNoodleMap(BeatmapKey key)
         {
-            // thanks kinsi
             if (PluginManager.EnabledPlugins.Any(x => x.Name == "NoodleExtensions")) {
-                var isIsNoodleMap = SongCore.Collections.RetrieveDifficultyData(level, key)?
-                    .additionalDifficultyData?
-                    ._requirements?.Any(x => x == "Noodle Extensions") == true;
-                return isIsNoodleMap;
+                var difficultyData = SongCore.Collections.GetCustomLevelSongDifficultyData(key);
+                return difficultyData?.additionalDifficultyData?._requirements?.Any(x => x == "Noodle Extensions") == true;
             }
-            else {
-                return false;
-            }
+            return false;
         }
-        public static bool IsChromaMap(BeatmapLevel level, BeatmapKey key)
+        public static bool IsChromaMap(BeatmapKey key)
         {
-
             if (PluginManager.EnabledPlugins.Any(x => x.Name == "Chroma")) {
-                var isIsNoodleMap = SongCore.Collections.RetrieveDifficultyData(level, key)?
-                    .additionalDifficultyData?
-                    ._requirements?.Any(x => x == "Chroma") == true;
-                isIsNoodleMap = isIsNoodleMap || SongCore.Collections.RetrieveDifficultyData(level, key)?
-                    .additionalDifficultyData?
-                    ._suggestions?.Any(x => x == "Chroma") == true;
-                return isIsNoodleMap;
+                var difficultyData = SongCore.Collections.GetCustomLevelSongDifficultyData(key);
+                bool isChroma = difficultyData?.additionalDifficultyData?._requirements?.Any(x => x == "Chroma") == true;
+                isChroma |= difficultyData?.additionalDifficultyData?._suggestions?.Any(x => x == "Chroma") == true;
+                return isChroma;
             }
-            else {
-                return false;
-            }
+            return false;
         }
 
         public void Initialize()
         {
-            this.IsNoodle = IsNoodleMap(this.CurrentBeatmap, this.CurrentmapKey);
-            this.IsChroma = IsChromaMap(this.CurrentBeatmap, this.CurrentmapKey);
+            this.IsNoodle = IsNoodleMap(this.CurrentmapKey);
+            this.IsChroma = IsChromaMap(this.CurrentmapKey);
             Plugin.Log.Debug($"Noodle?:{this.IsNoodle}");
             Plugin.Log.Debug($"Chroma?:{this.IsChroma}");
         }

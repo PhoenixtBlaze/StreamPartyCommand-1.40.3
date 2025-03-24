@@ -1,4 +1,5 @@
-﻿using StreamPartyCommand.Utilities;
+﻿using StreamPartyCommand.Configuration;
+using StreamPartyCommand.Utilities;
 using System;
 using UnityEngine;
 using Zenject;
@@ -32,7 +33,23 @@ namespace StreamPartyCommand.Models
         public virtual void SpawnExplosion(Vector3 pos)
         {
             try {
+                // Move the particle system 2 units further along the Z-axis
+                pos.z += 3.0f;
+
                 this._particleSystem.transform.position = pos;
+
+                // Ensure the particle system is in the same layer as the bomb name
+                this._particleSystem.gameObject.layer = PluginConfig.Instance.NameObjectLayer;
+
+                // Ensure proper rendering in VR
+                foreach (var renderer in this._particleSystem.GetComponentsInChildren<ParticleSystemRenderer>()) {
+                    if (renderer.material != null) {
+                        renderer.material.shader = Shader.Find("VR/Particles/Alpha Blended");
+                        renderer.material.renderQueue = 3000;
+                    }
+                }
+
+
                 this._particleSystem.Emit(50000);
             }
             catch (Exception e) {

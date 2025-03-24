@@ -37,6 +37,10 @@ namespace StreamPartyCommand.Models
             this._color = color;
             this._text.text = text;
             this._text.fontSize = fontSize;
+
+            // Move the name effect further
+            targetPos += new Vector3(0, 0, 3);
+
             base.InitAndPresent(duration, targetPos, rotation, shake);
         }
 
