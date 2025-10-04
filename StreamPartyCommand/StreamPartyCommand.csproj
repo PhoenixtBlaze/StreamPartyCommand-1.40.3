@@ -193,6 +193,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Diagnostics\BSMLDiContainerTrace.cs" />
     <Compile Include="Events\JoinChannelEventArgs.cs" />
     <Compile Include="Events\LoginEventArgs.cs" />
     <Compile Include="HarmonyPathches\ColorManagerPatch.cs" />

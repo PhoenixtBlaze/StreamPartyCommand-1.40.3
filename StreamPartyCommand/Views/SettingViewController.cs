@@ -8,9 +8,11 @@ namespace StreamPartyCommand.Views
 {
     internal class SettingViewController : BSMLAutomaticViewController, IInitializable
     {
+
         //ﾟ+｡*ﾟ+｡｡+ﾟ*｡+ﾟ ﾟ+｡*ﾟ+｡｡+ﾟ*｡+ﾟ ﾟ+｡*ﾟ+｡*ﾟ+｡｡+ﾟ*｡+ﾟ ﾟ+｡*ﾟ+｡｡+ﾟ*｡+ﾟ ﾟ+｡*ﾟ+｡*ﾟ+｡｡+ﾟ*｡+ﾟ ﾟ+｡*ﾟ+｡｡+ﾟ*｡+ﾟ ﾟ+｡*
         #region // プロパティ
-        // For this method of setting the ResourceName, this class must be the first class in the file.
+        
+        
         public string ResourceName => string.Join(".", this.GetType().Namespace, this.GetType().Name);
         [UIValue("is-bomb-enable")]
         public virtual bool IsBombEnable
@@ -56,7 +58,8 @@ namespace StreamPartyCommand.Views
         #region // パブリックメソッド
         public void Initialize()
         {
-            BSMLSettings.Instance.AddSettingsMenu("<size=80%>StreamPartyCommand</size>", this.ResourceName, this);
+            // Delayed the settings menu registration to avoid early DI container access
+            BSMLSettings.Instance?.AddSettingsMenu("<size=80%>StreamPartyCommand</size>", this.ResourceName, this);
         }
         #endregion
         //ﾟ+｡*ﾟ+｡｡+ﾟ*｡+ﾟ ﾟ+｡*ﾟ+｡｡+ﾟ*｡+ﾟ ﾟ+｡*ﾟ+｡*ﾟ+｡｡+ﾟ*｡+ﾟ ﾟ+｡*ﾟ+｡｡+ﾟ*｡+ﾟ ﾟ+｡*ﾟ+｡*ﾟ+｡｡+ﾟ*｡+ﾟ ﾟ+｡*ﾟ+｡｡+ﾟ*｡+ﾟ ﾟ+｡*

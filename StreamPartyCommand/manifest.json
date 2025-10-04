@@ -2,15 +2,49 @@
   "$schema": "https://raw.githubusercontent.com/bsmg/BSIPA-MetadataFileSchema/master/Schema.json",
   "id": "StreamPartyCommand",
   "name": "StreamPartyCommand",
-  "author": "denpadokei",
-  "version": "5.0.0",
+  "author": "PhoenixBlaze Forked from denpadokei",
+  "version": "5.0.1",
   "description": "",
-  "gameVersion": "1.39.1",
+  "gameVersion": "1.40.8",
   "dependsOn": {
     "BSIPA": "^4.2.5",
     "AssetBundleLoadingTools": "^1.1.9",
     "CatCore": "^1.1.0",
     "SiraUtil": "^3.1.14"
   },
-  "features": []
+  "features": {
+    "ui": {
+      "hasSettingsMenu": true,
+      "usesBSML": true,
+      "settingsView": "StreamPartyCommand.Views.SettingViewController",
+      "settingsResource": "StreamPartyCommand.Views.SettingViewController.bsml"
+    },
+    "chat": {
+      "provider": "CatCore",
+      "twitchCommands": [
+        "!bomb",
+        "!setnotecolor",
+        "!setsabercolor",
+        "!setlightcolor",
+        "!setwallcolor"
+      ]
+    },
+    "gameplay": {
+      "effects": [
+        "bombReplacement",
+        "noteColorOverride",
+        "saberColorOverride",
+        "lightColorOverride",
+        "wallColorOverride"
+      ],
+      "limitations": [
+        "colorOverridesDisabledOnChromaAndNoodle"
+      ]
+    },
+    "assets": {
+      "loadsFontAssets": true,
+      "fontBundleDirectory": "UserData/SPCFontAssets/Main",
+      "lazyBSMLAccess": true
+    }
+  }
 }
