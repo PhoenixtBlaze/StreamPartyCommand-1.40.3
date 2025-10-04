@@ -5,6 +5,7 @@ Starting from version 1.1.0, it can coexist with [TwitchFX](https://github.com/r
 # Required Mods  
 - SiraUtil
 - CatCore
+- Asset Bundle Loading Tools
 # How to Use 
 ![image](https://user-images.githubusercontent.com/55026301/138883861-c55a309a-d4e2-48f2-a1f8-4042d2e28444.png)
 
